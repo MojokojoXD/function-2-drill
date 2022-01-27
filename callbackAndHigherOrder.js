@@ -155,7 +155,7 @@ function each(names, callBack)
   'The item at index [INDEXPARAM] is [ITEMPARAM].'
 */
 
-console.log(each(names,function(item, index){console.log(`The item at index ${index} is ${item}`)}));
+each(names,function(item, index){console.log(`The item at index ${index} is ${item}`)});
 
 
 ////////// PROBLEM 7 //////////
@@ -193,9 +193,8 @@ function getUserById(users, singleId, callBack){
   // {if(obj.id === singleId) {return obj}})
   // callBack(matchingUser[0])
 
-  let matchingUser = [];
-  users.forEach(obj => {if(obj.id === singleId){matchingUser.push(obj)}});
-  callBack(matchingUser[0])
+  users.forEach(obj => {if(obj.id === singleId){callBack(obj)}});
+ 
 }
 
 
@@ -223,7 +222,9 @@ function getUserById(users, singleId, callBack){
   the two parameters together and return the sum.
 */
 
-// CODE HERE
+const addingFactory = function(num1){
+  return (num2) => num1 + num2;
+}
 
 /*
   Now that you have addingFactory, you can create other
@@ -237,7 +238,7 @@ function getUserById(users, singleId, callBack){
   10 as an arguemnt.
 */
 
-// CODE HERE
+const addTen = addingFactory(10);
 
 /*
   Now the inner function is stored in the addTen variable! 
@@ -249,7 +250,7 @@ function getUserById(users, singleId, callBack){
   to see the different outputs.
 */
 
-// CODE HERE
+console.log(addTen(4));
 
 /*
   Let's make another function from the addingFactory. 
@@ -262,4 +263,4 @@ function getUserById(users, singleId, callBack){
   to add any number to your favorite number!
 */
 
-// CODE HERE
+const addNumber = addingFactory(5);
