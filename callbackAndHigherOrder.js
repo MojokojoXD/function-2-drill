@@ -189,10 +189,6 @@ var users = [
 // Do not edit the code above.
 
 function getUserById(users, singleId, callBack){
-  // let matchingUser = users.map((obj) => 
-  // {if(obj.id === singleId) {return obj}})
-  // callBack(matchingUser[0])
-
   users.forEach(obj => {if(obj.id === singleId){callBack(obj)}});
  
 }
